@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+
+<VBox spacing="0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lostandfound.controllers.ItemDetailController"
+      styleClass="root-container">
+
+    <HBox styleClass="accent-stripe" maxWidth="Infinity"/>
+
+    <HBox alignment="CENTER_LEFT" styleClass="nav-bar">
+        <padding><Insets top="0" right="24" bottom="0" left="24"/></padding>
+        <Text text="📦  Item Detail" styleClass="nav-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="← Back" onAction="#handleBack" styleClass="secondary-button"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="cards-scroll-pane">
+        <VBox spacing="24">
+            <padding><Insets top="32" right="48" bottom="32" left="48"/></padding>
+
+            <!-- Title + status -->
+            <HBox alignment="CENTER_LEFT" spacing="16">
+                <Text fx:id="titleText" styleClass="title-text"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="statusLabel" styleClass="status-badge"/>
+            </HBox>
+
+            <!-- Cards row -->
+            <HBox spacing="22" alignment="TOP_LEFT">
+
+                <!-- Info card -->
+                <VBox spacing="16" styleClass="detail-card" HBox.hgrow="ALWAYS">
+                    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+                    <Label text="ITEM INFORMATION"
+                           style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #A1A1AA; -fx-font-family: 'Segoe UI Semibold', Arial, sans-serif;"/>
+
+                    <GridPane hgap="14" vgap="12">
+                        <Label text="Category:" style="-fx-font-weight: bold; -fx-text-fill: #71717A;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label fx:id="categoryLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Location:" style="-fx-font-weight: bold; -fx-text-fill: #71717A;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Label fx:id="locationLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Reported by:" style="-fx-font-weight: bold; -fx-text-fill: #71717A;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <Label fx:id="reporterLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Date:" style="-fx-font-weight: bold; -fx-text-fill: #71717A;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <Label fx:id="dateLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <Separator/>
+
+                    <VBox spacing="8">
+                        <Label text="Description" style="-fx-font-weight: bold;"/>
+                        <Text fx:id="descriptionText" wrappingWidth="420"
+                              style="-fx-fill: #71717A; -fx-font-size: 13px;"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Image card -->
+                <VBox alignment="CENTER" styleClass="detail-card" fx:id="imageContainer"
+                      visible="false" managed="false" prefWidth="260" prefHeight="260">
+                    <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
+                    <Label text="ITEM IMAGE"
+                           style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #A1A1AA;">
+                        <VBox.margin><Insets bottom="10"/></VBox.margin>
+                    </Label>
+                    <ImageView fx:id="itemImageView" fitWidth="224" fitHeight="210" preserveRatio="true"/>
+                </VBox>
+            </HBox>
+
+            <!-- Match Reports section (shown when reports exist) -->
+            <VBox fx:id="matchReportsBox" spacing="10" styleClass="detail-card"
+                  visible="false" managed="false">
+                <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+            </VBox>
+
+            <!-- Actions row -->
+            <HBox spacing="12" alignment="CENTER_RIGHT">
+                <Button text="← Back" onAction="#handleBack" styleClass="secondary-button"/>
+                <!-- "Found a Match?" — shown only for lost items that aren't yours -->
+                <Button fx:id="matchButton" text="🔍  Found a Match?" onAction="#handleFoundMatch"
+                        styleClass="match-button" visible="false" managed="false"/>
+                <!-- "Claim This Item" — shown only for found items -->
+                <Button fx:id="claimButton" text="Claim This Item →" onAction="#handleClaim"
+                        styleClass="primary-button"/>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+
+</VBox>

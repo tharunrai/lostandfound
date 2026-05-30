@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lostandfound.controllers.MyClaimsController"
+            styleClass="root-container">
+
+    <top>
+        <VBox>
+            <HBox styleClass="accent-stripe" maxWidth="Infinity"/>
+            <HBox alignment="CENTER_LEFT" styleClass="nav-bar">
+                <padding><Insets top="0" right="24" bottom="0" left="24"/></padding>
+                <VBox alignment="CENTER_LEFT" spacing="2">
+                    <Text text="📋  My Claims" styleClass="nav-title"/>
+                    <Text text="Track all your submitted claims"
+                          style="-fx-font-size: 10px; -fx-fill: #52525B;"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="← Back to Dashboard" onAction="#handleBack" styleClass="secondary-button"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="16">
+            <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+            <!-- Section header -->
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="info-panel">
+                <VBox spacing="3">
+                    <Label text="YOUR CLAIM HISTORY"
+                           style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #A1A1AA;"/>
+                    <Label text="View the status of all items you have claimed." styleClass="subtitle-text"/>
+                </VBox>
+            </HBox>
+
+            <TableView fx:id="claimsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colItemTitle" text="Item Title"     prefWidth="320"/>
+                    <TableColumn fx:id="colStatus"    text="Claim Status"   prefWidth="180"/>
+                    <TableColumn fx:id="colDate"      text="Date Submitted" prefWidth="180"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

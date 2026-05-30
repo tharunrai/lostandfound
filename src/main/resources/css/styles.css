@@ -1,0 +1,617 @@
+/* ============================================================
+   LOST & FOUND — Clean Modern Design System
+   Palette: Warm white, slate ink, amber accent, subtle greys
+   Philosophy: Spacious, airy, no harsh borders, soft shadows
+   ============================================================ */
+
+/* Kill ALL JavaFX default blue focus rings globally */
+.root {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ── Root / Base ─────────────────────────────────────────────── */
+
+.root-container {
+    -fx-background-color: #F7F7F8;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Typography ──────────────────────────────────────────────── */
+.title-text {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-fill: #18181B;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+.subtitle-text {
+    -fx-font-size: 13px;
+    -fx-fill: #71717A;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Navigation Bar ──────────────────────────────────────────── */
+.nav-bar {
+    -fx-background-color: #18181B;
+    -fx-min-height: 56px;
+}
+
+.nav-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-fill: #FAFAFA;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+
+/* Primary — amber, pill-rounded, soft shadow */
+.primary-button {
+    -fx-background-color: #F59E0B;
+    -fx-text-fill: #18181B;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 9px 22px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(245,158,11,0.35), 8, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.primary-button:hover {
+    -fx-background-color: #D97706;
+    -fx-effect: dropshadow(gaussian, rgba(245,158,11,0.5), 12, 0, 0, 3);
+}
+.primary-button:pressed {
+    -fx-background-color: #B45309;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 4, 0, 0, 1);
+}
+
+/* Secondary — clean white pill */
+.secondary-button {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #3F3F46;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 9px 22px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 6, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.secondary-button:hover {
+    -fx-background-color: #F4F4F5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0, 0, 2);
+}
+.secondary-button:pressed {
+    -fx-background-color: #E4E4E7;
+    -fx-effect: none;
+}
+
+/* Action / Report — emerald */
+.action-button {
+    -fx-background-color: #10B981;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 9px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.35), 8, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.action-button:hover {
+    -fx-background-color: #059669;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.5), 12, 0, 0, 3);
+}
+
+/* Success — same emerald family, slightly lighter */
+.success-button {
+    -fx-background-color: #10B981;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8px 18px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.3), 6, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.success-button:hover {
+    -fx-background-color: #059669;
+}
+
+/* Danger — rose */
+.danger-button {
+    -fx-background-color: #EF4444;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8px 18px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(239,68,68,0.3), 6, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.danger-button:hover {
+    -fx-background-color: #DC2626;
+}
+
+/* Admin — indigo/blue */
+.admin-button {
+    -fx-background-color: #6366F1;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 9px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(99,102,241,0.35), 8, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.admin-button:hover {
+    -fx-background-color: #4F46E5;
+    -fx-effect: dropshadow(gaussian, rgba(99,102,241,0.5), 12, 0, 0, 3);
+}
+
+/* Nav ghost buttons (on dark bar) */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A1A1AA;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 7px 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+.nav-button:hover {
+    -fx-background-color: #27272A;
+    -fx-text-fill: #FAFAFA;
+}
+
+/* Logout */
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #F87171;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 7px 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+.logout-button:hover {
+    -fx-background-color: #27272A;
+    -fx-text-fill: #FCA5A5;
+}
+
+/* View toggle — violet */
+.view-toggle-button {
+    -fx-background-color: #8B5CF6;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 9px 20px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.35), 8, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.view-toggle-button:hover {
+    -fx-background-color: #7C3AED;
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.5), 12, 0, 0, 3);
+}
+
+/* "Found a Match?" — teal/cyan, stands out on lost item cards */
+.match-button {
+    -fx-background-color: #0D9488;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 7px 16px;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(13,148,136,0.35), 8, 0, 0, 2);
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+.match-button:hover {
+    -fx-background-color: #0F766E;
+    -fx-effect: dropshadow(gaussian, rgba(13,148,136,0.5), 12, 0, 0, 3);
+}
+.match-button:pressed {
+    -fx-background-color: #115E59;
+    -fx-effect: none;
+}
+
+/* Already-reported state */
+.match-button-done {
+    -fx-background-color: #D1FAE5;
+    -fx-text-fill: #065F46;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 7px 16px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #6EE7B7;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-cursor: default;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+
+/* ── Form Inputs ─────────────────────────────────────────────── */
+.text-field, .password-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 9px 13px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #18181B;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 4, 0, 0, 1);
+}
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #F59E0B;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(245,158,11,0.20), 8, 0, 0, 0);
+}
+
+.text-area {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 9px 13px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #18181B;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+.text-area:focused {
+    -fx-border-color: #F59E0B;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(245,158,11,0.20), 8, 0, 0, 0);
+}
+.text-area .content {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+}
+
+.combo-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 4px 8px;
+    -fx-font-size: 13px;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+.combo-box:focused {
+    -fx-border-color: #F59E0B;
+    -fx-border-width: 2px;
+}
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #18181B;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-padding: 4px 6px;
+}
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0, 0, 4);
+}
+.combo-box-popup .list-cell:filled:hover {
+    -fx-background-color: #FEF3C7;
+    -fx-text-fill: #18181B;
+}
+
+.label {
+    -fx-text-fill: #3F3F46;
+    -fx-font-size: 13px;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Tab Pane ────────────────────────────────────────────────── */
+.tab-pane {
+    -fx-tab-min-width: 130px;
+    -fx-tab-max-width: 200px;
+    -fx-tab-min-height: 40px;
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-text-fill: #71717A;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 0px 18px;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+.tab:hover {
+    -fx-background-color: #F4F4F5;
+    -fx-text-fill: #3F3F46;
+}
+
+.tab:selected {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #18181B;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 6, 0, 0, 2);
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: #F0F0F1;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab-pane .headers-region {
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: #F7F7F8;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ── Table View ──────────────────────────────────────────────── */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 3);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #FAFAFA;
+    -fx-background-radius: 10px 10px 0 0;
+    -fx-border-color: #F0F0F1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #F0F0F1;
+    -fx-border-width: 0 1 0 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #71717A;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+    -fx-padding: 10px 10px;
+    -fx-text-transform: uppercase;
+}
+
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #F4F4F5;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAFAFA;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #FEF3C7;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #18181B;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #FFFBEB;
+}
+
+.table-cell {
+    -fx-text-fill: #3F3F46;
+    -fx-padding: 9px 12px;
+    -fx-font-size: 13px;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Item Cards ──────────────────────────────────────────────── */
+.item-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-border-color: #F0F0F1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-padding: 18px;
+    -fx-spacing: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 3);
+}
+
+.item-card:hover {
+    -fx-border-color: #FCD34D;
+    -fx-effect: dropshadow(gaussian, rgba(245,158,11,0.20), 16, 0, 0, 4);
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #18181B;
+    -fx-wrap-text: true;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+.card-category {
+    -fx-font-size: 12px;
+    -fx-text-fill: #71717A;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.card-location {
+    -fx-font-size: 12px;
+    -fx-text-fill: #71717A;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.card-date {
+    -fx-font-size: 11px;
+    -fx-text-fill: #A1A1AA;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Status badges — soft pill */
+.card-status-badge {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3px 10px;
+    -fx-background-radius: 20px;
+    -fx-border-width: 0;
+    -fx-alignment: center;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+.card-status-badge.lost {
+    -fx-background-color: #FEE2E2;
+    -fx-text-fill: #B91C1C;
+}
+
+.card-status-badge.found {
+    -fx-background-color: #D1FAE5;
+    -fx-text-fill: #065F46;
+}
+
+.card-status-badge.claimed {
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #4B5563;
+}
+
+/* ── Detail Card ─────────────────────────────────────────────── */
+.detail-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-border-color: #F0F0F1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 12, 0, 0, 3);
+}
+
+.status-badge {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D97706;
+    -fx-font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Scroll Panes ────────────────────────────────────────────── */
+.cards-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+.cards-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* ── Separator ───────────────────────────────────────────────── */
+.separator .line {
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1px;
+}
+
+/* ── Hyperlink ───────────────────────────────────────────────── */
+.hyperlink {
+    -fx-text-fill: #D97706;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-underline: false;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+.hyperlink:hover {
+    -fx-text-fill: #B45309;
+    -fx-underline: true;
+}
+
+/* ── RadioButton ─────────────────────────────────────────────── */
+.radio-button {
+    -fx-text-fill: #3F3F46;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+.radio-button:selected .radio {
+    -fx-border-color: #F59E0B;
+    -fx-background-color: #F59E0B;
+}
+
+/* ── Search strip ────────────────────────────────────────────── */
+.search-strip {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #F0F0F1;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12px 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 6, 0, 0, 2);
+}
+
+/* ── Login / Register form card ──────────────────────────────── */
+.form-card {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E4E4E7;
+    -fx-border-width: 1px;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 24, 0, 0, 6);
+    -fx-padding: 38px 44px;
+}
+
+/* ── Amber accent top stripe ─────────────────────────────────── */
+.accent-stripe {
+    -fx-background-color: #F59E0B;
+    -fx-min-height: 4px;
+    -fx-max-height: 4px;
+    -fx-border-color: transparent;
+}
+
+/* ── Info panel (toolbar rows in Admin / MyClaims) ───────────── */
+.info-panel {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #F0F0F1;
+    -fx-border-width: 1px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-padding: 14px 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 6, 0, 0, 2);
+}

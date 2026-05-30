@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lostandfound.controllers.LoginController"
+      styleClass="root-container" alignment="CENTER" spacing="0">
+
+    <!-- Thin amber accent stripe -->
+    <HBox styleClass="accent-stripe" maxWidth="Infinity"/>
+
+    <!-- Body -->
+    <VBox alignment="CENTER" VBox.vgrow="ALWAYS" spacing="0">
+        <padding><Insets top="60" right="0" bottom="60" left="0"/></padding>
+
+        <!-- Brand -->
+        <VBox alignment="CENTER" spacing="6">
+            <Text text="📦  Lost &amp; Found" styleClass="title-text"/>
+            <Text text="Management System"
+                  style="-fx-font-size: 13px; -fx-fill: #A1A1AA; -fx-font-family: 'Segoe UI', Arial, sans-serif;"/>
+        </VBox>
+        <VBox.margin><Insets bottom="36"/></VBox.margin>
+
+        <!-- Form card -->
+        <VBox styleClass="form-card" maxWidth="380" minWidth="340" spacing="20" alignment="CENTER_LEFT">
+            <VBox spacing="4">
+                <Text text="Welcome back"
+                      style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-fill: #18181B; -fx-font-family: 'Segoe UI Semibold', Arial, sans-serif;"/>
+                <Text text="Sign in to your account."
+                      style="-fx-font-size: 13px; -fx-fill: #A1A1AA;"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Email Address"/>
+                <TextField fx:id="emailField" promptText="you@example.com" maxWidth="Infinity"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Password"/>
+                <PasswordField fx:id="passwordField" promptText="Enter your password" maxWidth="Infinity"/>
+            </VBox>
+
+            <Button text="Login →" onAction="#handleLogin" maxWidth="Infinity" styleClass="primary-button">
+                <VBox.margin><Insets top="4"/></VBox.margin>
+            </Button>
+
+            <HBox alignment="CENTER">
+                <Hyperlink text="Don't have an account? Register here." onAction="#handleGoToRegister"/>
+            </HBox>
+        </VBox>
+    </VBox>
+
+    <!-- Footer -->
+    <HBox alignment="CENTER" style="-fx-background-color: #18181B; -fx-padding: 12 0 12 0;">
+        <Text text="Lost &amp; Found System  •  All rights reserved"
+              style="-fx-fill: #52525B; -fx-font-size: 11px;"/>
+    </HBox>
+</VBox>

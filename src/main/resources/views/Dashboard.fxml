@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lostandfound.controllers.DashboardController"
+            styleClass="root-container">
+
+    <top>
+        <VBox>
+            <HBox styleClass="accent-stripe" maxWidth="Infinity"/>
+            <HBox spacing="14" alignment="CENTER_LEFT" styleClass="nav-bar">
+                <padding><Insets top="0" right="24" bottom="0" left="24"/></padding>
+                <VBox alignment="CENTER_LEFT" spacing="2">
+                    <Text text="📦  Lost &amp; Found" styleClass="nav-title"/>
+                    <Text text="Item Tracking System"
+                          style="-fx-font-size: 10px; -fx-fill: #52525B;"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="+ Report Item" onAction="#handleAddItem" styleClass="action-button"/>
+                <Button text="My Claims" onAction="#handleMyClaims" styleClass="nav-button"/>
+                <Button fx:id="adminPanelBtn" text="Admin Panel" onAction="#handleAdminPanel" styleClass="admin-button"/>
+                <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="0">
+
+            <!-- Search strip -->
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="search-strip">
+                <TextField fx:id="searchField" promptText="Search by keyword..." prefWidth="260"/>
+                <ComboBox fx:id="categoryFilter" promptText="All Categories" prefWidth="155"/>
+                <Button text="Search" onAction="#handleSearch" styleClass="primary-button"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="toggleViewBtn" text="🎴  Cards View" onAction="#handleToggleView" styleClass="view-toggle-button"/>
+            </HBox>
+
+            <!-- Tabs -->
+            <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+                <padding><Insets top="16" right="18" bottom="18" left="18"/></padding>
+                <tabs>
+                    <Tab text="🔍  Lost Items">
+                        <StackPane>
+                            <TableView fx:id="lostTable" visible="false" managed="false">
+                                <columns>
+                                    <TableColumn fx:id="colLostTitle"    text="Title"         prefWidth="260"/>
+                                    <TableColumn fx:id="colLostCategory" text="Category"      prefWidth="150"/>
+                                    <TableColumn fx:id="colLostLocation" text="Location"      prefWidth="150"/>
+                                    <TableColumn fx:id="colLostStatus"   text="Status"        prefWidth="100"/>
+                                    <TableColumn fx:id="colLostDate"     text="Date Reported" prefWidth="150"/>
+                                </columns>
+                            </TableView>
+                            <ScrollPane fx:id="lostCardsScroll" fitToWidth="true" visible="true" managed="true" styleClass="cards-scroll-pane">
+                                <FlowPane fx:id="lostCardsPane" hgap="16" vgap="16" styleClass="cards-container">
+                                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                                </FlowPane>
+                            </ScrollPane>
+                        </StackPane>
+                    </Tab>
+                    <Tab text="🎁  Found Items">
+                        <StackPane>
+                            <TableView fx:id="foundTable" visible="false" managed="false">
+                                <columns>
+                                    <TableColumn fx:id="colFoundTitle"    text="Title"         prefWidth="200"/>
+                                    <TableColumn fx:id="colFoundCategory" text="Category"      prefWidth="130"/>
+                                    <TableColumn fx:id="colFoundLocation" text="Location"      prefWidth="130"/>
+                                    <TableColumn fx:id="colFoundStatus"   text="Status"        prefWidth="100"/>
+                                    <TableColumn fx:id="colFoundDate"     text="Date Reported" prefWidth="140"/>
+                                    <TableColumn fx:id="colFoundClaimers" text="👤 Claimers"   prefWidth="180"/>
+                                </columns>
+                            </TableView>
+                            <ScrollPane fx:id="foundCardsScroll" fitToWidth="true" visible="true" managed="true" styleClass="cards-scroll-pane">
+                                <FlowPane fx:id="foundCardsPane" hgap="16" vgap="16" styleClass="cards-container">
+                                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                                </FlowPane>
+                            </ScrollPane>
+                        </StackPane>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </VBox>
+    </center>
+
+</BorderPane>

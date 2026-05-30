@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lostandfound.controllers.AdminPanelController"
+            styleClass="root-container">
+
+    <top>
+        <VBox>
+            <HBox styleClass="accent-stripe" maxWidth="Infinity"/>
+            <HBox alignment="CENTER_LEFT" styleClass="nav-bar">
+                <padding><Insets top="0" right="24" bottom="0" left="24"/></padding>
+                <VBox alignment="CENTER_LEFT" spacing="2">
+                    <Text text="⚙  Admin Panel" styleClass="nav-title"/>
+                    <Text text="Manage claims &amp; item statuses"
+                          style="-fx-font-size: 10px; -fx-fill: #52525B;"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="← Back to Dashboard" onAction="#handleBack" styleClass="secondary-button"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <padding><Insets top="16" right="18" bottom="18" left="18"/></padding>
+            <tabs>
+
+                <!-- Claims tab -->
+                <Tab text="📋  Claims">
+                    <VBox spacing="14">
+                        <padding><Insets top="16" right="2" bottom="16" left="2"/></padding>
+
+                        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="info-panel">
+                            <VBox spacing="3">
+                                <Label text="CLAIM MANAGEMENT"
+                                       style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #A1A1AA;"/>
+                                <Label text="Select a row, then approve or reject the claim." styleClass="subtitle-text"/>
+                            </VBox>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="✅  Approve" onAction="#handleApprove" styleClass="success-button"/>
+                            <Button text="❌  Reject"  onAction="#handleReject"  styleClass="danger-button"/>
+                        </HBox>
+
+                        <TableView fx:id="claimsTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colItemTitle" text="Item"         prefWidth="260"/>
+                                <TableColumn fx:id="colClaimer"   text="Claimer"      prefWidth="190"/>
+                                <TableColumn fx:id="colStatus"    text="Claim Status" prefWidth="140"/>
+                                <TableColumn fx:id="colDate"      text="Date"         prefWidth="140"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+
+                <!-- All Items tab -->
+                <Tab text="📦  All Items">
+                    <VBox spacing="14">
+                        <padding><Insets top="16" right="2" bottom="16" left="2"/></padding>
+
+                        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="info-panel">
+                            <Label text="Filter:"/>
+                            <ComboBox fx:id="itemStatusFilter" prefWidth="140"/>
+                            <Button text="Apply" onAction="#handleItemFilter" styleClass="primary-button"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button text="📍  Mark Found"   onAction="#handleMarkAsFound"   styleClass="action-button"/>
+                            <Button text="🔍  Mark Lost"    onAction="#handleMarkAsLost"    styleClass="admin-button"/>
+                            <Button text="✅  Mark Claimed" onAction="#handleMarkAsClaimed" styleClass="success-button"/>
+                        </HBox>
+
+                        <TableView fx:id="itemsTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colItemsTitle"    text="Title"       prefWidth="210"/>
+                                <TableColumn fx:id="colItemsCategory" text="Category"    prefWidth="130"/>
+                                <TableColumn fx:id="colItemsLocation" text="Location"    prefWidth="130"/>
+                                <TableColumn fx:id="colItemsStatus"   text="Status"      prefWidth="100"/>
+                                <TableColumn fx:id="colItemsDate"     text="Date"        prefWidth="130"/>
+                                <TableColumn fx:id="colItemsClaimers" text="👤 Claimers" prefWidth="180"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lostandfound.controllers.AddItemController"
+      styleClass="root-container">
+
+    <HBox styleClass="accent-stripe" maxWidth="Infinity"/>
+
+    <!-- Nav header -->
+    <HBox alignment="CENTER_LEFT" styleClass="nav-bar">
+        <padding><Insets top="0" right="24" bottom="0" left="24"/></padding>
+        <Text text="📦  Report Item" styleClass="nav-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="← Cancel" onAction="#handleCancel" styleClass="secondary-button"/>
+    </HBox>
+
+    <!-- Form body -->
+    <VBox spacing="24" VBox.vgrow="ALWAYS" alignment="TOP_LEFT">
+        <padding><Insets top="32" right="56" bottom="32" left="56"/></padding>
+
+        <VBox spacing="4">
+            <Text text="Report a Lost or Found Item" styleClass="title-text"/>
+            <Text text="Fill in the details below. Fields marked * are required." styleClass="subtitle-text"/>
+        </VBox>
+
+        <!-- Centrally-left aligned vertical stack form -->
+        <VBox spacing="18" maxWidth="520" alignment="TOP_LEFT">
+            
+            <VBox spacing="6">
+                <Label text="Item Title *"/>
+                <TextField fx:id="titleField" promptText="E.g., Blue Backpack, iPhone 13..." maxWidth="Infinity"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Description"/>
+                <TextArea fx:id="descriptionArea" promptText="Describe color, brand, unique markings, contents..."
+                          prefRowCount="4" maxWidth="Infinity" wrapText="true"/>
+            </VBox>
+
+            <HBox spacing="16">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Category *"/>
+                    <ComboBox fx:id="categoryBox" promptText="Select Category" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Location *"/>
+                    <ComboBox fx:id="locationBox" promptText="Select Location" maxWidth="Infinity"/>
+                </VBox>
+            </HBox>
+
+            <VBox spacing="6">
+                <Label text="Item Status *"/>
+                <HBox spacing="20" styleClass="info-panel" alignment="CENTER_LEFT" maxWidth="Infinity">
+                    <RadioButton fx:id="lostRadio"  text="🔍  Lost — I lost this item"/>
+                    <RadioButton fx:id="foundRadio" text="🎁  Found — I found this item"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Image (Optional)"/>
+                <HBox spacing="12" styleClass="info-panel" alignment="CENTER_LEFT" maxWidth="Infinity">
+                    <Button text="📎  Choose Image..." onAction="#handleUploadImage"
+                            styleClass="secondary-button"/>
+                    <Label fx:id="imageNameLabel" text="No image selected"
+                           style="-fx-text-fill: #A1A1AA; -fx-font-size: 11px;" wrapText="true"/>
+                </HBox>
+            </VBox>
+
+            <!-- Actions directly aligned under the inputs -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <padding><Insets top="10"/></padding>
+                <Button text="Save Item →" onAction="#handleSave" styleClass="primary-button"/>
+                <Button text="Cancel" onAction="#handleCancel" styleClass="secondary-button"/>
+            </HBox>
+        </VBox>
+    </VBox>
+
+</VBox>
